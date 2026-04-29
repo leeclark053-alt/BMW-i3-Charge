@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>EV Charge Garage</title>
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0a84ff">
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>EV Charge Garage</h2>
+
+<div>
+
+  <select id="vehicle" onchange="setVehicle()">
+
+    <option value="i3">BMW i3 (39 kWh)</option>
+
+    <option value="model3">Tesla Model 3 (60 kWh)</option>
+
+    <option value="ev6">Kia EV6 (77 kWh)</option>
+
+    <option value="custom">Custom Vehicle</option>
+
+  </select>
+
+</div>
+
+<div id="customBox" style="display:none;">
+
+  <input id="customSize" type="number" placeholder="Battery kWh">
+
+</div>
+
+<div>Current: <span id="cval"></span>%</div>
+
+<input type="range" min="0" max="100" id="current" class="slider">
+
+<div>Target: <span id="tval"></span>%</div>
+
+<input type="range" min="0" max="100" id="target" class="slider">
+
+<br>
+
+<button onclick="preset(80)">80%</button>
+
+<button onclick="preset(90)">90%</button>
+
+<button onclick="preset(100)">100%</button>
+
+<br>
+
+<button class="main" onclick="run()">Calculate Charge</button>
+
+<div class="bar-container">
+
+  <div class="bar" id="bar"></div>
+
+</div>
+
+<div id="out"></div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
